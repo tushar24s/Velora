@@ -273,14 +273,14 @@ const ShopPage = () => {
       initial="initial"
       animate="animate"
       exit="exit"
-      className="section-shell space-y-10"
+      className="section-shell space-y-8 sm:space-y-10"
     >
       <div
         data-gsap="shop-hero"
-        className="shop-hero-card surface-card-strong overflow-hidden px-6 py-8 sm:px-8 sm:py-10"
+        className="shop-hero-card surface-card-strong overflow-hidden px-4 py-5 sm:px-8 sm:py-10"
       >
-        <div className="grid gap-8 xl:grid-cols-[1.1fr_0.9fr] xl:items-end">
-          <div data-gsap="shop-hero-copy" className="space-y-6">
+        <div className="grid gap-5 lg:gap-8 xl:grid-cols-[1.1fr_0.9fr] xl:items-end">
+          <div data-gsap="shop-hero-copy" className="space-y-5">
             <span className="eyebrow">Storefront</span>
             <div className="space-y-4">
               <h1 className="shop-hero-title max-w-4xl">
@@ -295,7 +295,7 @@ const ShopPage = () => {
 
           <div
             data-gsap="shop-hero-panel"
-            className="glass-orbit rounded-[28px] p-5"
+            className="glass-orbit rounded-[20px] p-4 sm:rounded-[28px] sm:p-5"
           >
             <p className="text-[11px] uppercase tracking-[0.18em] text-soft">Trending now</p>
             <h2 className="mt-3 font-display text-2xl font-semibold tracking-[-0.04em]">
@@ -312,7 +312,7 @@ const ShopPage = () => {
           </div>
         </div>
 
-        <div data-gsap="shop-search" className="mt-8">
+        <div data-gsap="shop-search" className="mt-6">
           <SearchSuggestions
             value={filters.search}
             onChange={(value) => {
@@ -345,14 +345,14 @@ const ShopPage = () => {
           />
         </div>
 
-        <div className="mt-6 flex gap-3 overflow-x-auto pb-2">
+        <div className="mt-4 flex gap-2.5 overflow-x-auto pb-2 sm:mt-6 sm:gap-3">
           {["All", ...categories].map((category) => (
             <button
               key={category}
               type="button"
               onClick={() => handleCategoryChange(category)}
               data-gsap="shop-chip"
-              className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold transition duration-300 ${
+              className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-3.5 py-2.5 text-sm font-semibold transition duration-300 sm:px-4 ${
                 filters.category === category
                   ? "border-[rgb(var(--accent))] bg-[rgba(var(--accent),0.16)] text-main"
                   : "border-soft bg-[rgba(var(--surface),0.68)] text-soft hover:border-[rgba(var(--accent),0.32)] hover:text-main"
@@ -365,7 +365,7 @@ const ShopPage = () => {
         </div>
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-[290px_1fr]">
+      <div className="grid gap-6 lg:grid-cols-[280px_1fr] lg:gap-8">
         <div data-gsap="shop-filter">
           <FilterSidebar
             categories={categories}
@@ -376,7 +376,7 @@ const ShopPage = () => {
           />
         </div>
 
-        <div data-gsap="shop-results" className="space-y-5">
+        <div data-gsap="shop-results" className="space-y-4 sm:space-y-5">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm text-soft">
               {loading ? "Loading products..." : `${products.length} products available`}
@@ -397,7 +397,7 @@ const ShopPage = () => {
 
           <div
             key={`grid-${filters.category}-${filters.sort}-${debouncedSearch}-${filters.minPrice}-${filters.maxPrice}`}
-            className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3"
+            className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3"
           >
             {loading
               ? Array.from({ length: 6 }).map((_, index) => <ProductSkeleton key={index} />)

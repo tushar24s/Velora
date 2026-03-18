@@ -65,11 +65,11 @@ const CategoriesPage = () => {
       initial="initial"
       animate="animate"
       exit="exit"
-      className="section-shell space-y-10"
+      className="section-shell space-y-8 sm:space-y-10"
     >
       <div
         data-gsap="collections-panel"
-        className="surface-card-strong px-6 py-8 sm:px-8 sm:py-10"
+        className="surface-card-strong px-4 py-5 sm:px-8 sm:py-10"
       >
         <SectionHeading
           eyebrow="Collections"
@@ -77,7 +77,7 @@ const CategoriesPage = () => {
           description="The categories page behaves like a collection landing experience instead of a plain filter menu, with each collection framed as its own retail edit."
         />
 
-        <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {categoryHighlights.map((category, index) => (
             <motion.div
               key={category.title}
@@ -95,7 +95,7 @@ const CategoriesPage = () => {
               }}
               role="link"
               tabIndex={0}
-              className={`group relative min-h-[320px] cursor-pointer overflow-hidden rounded-[30px] border border-soft bg-gradient-to-br ${category.accent} p-0`}
+              className={`group relative min-h-[260px] cursor-pointer overflow-hidden rounded-[20px] border border-soft bg-gradient-to-br ${category.accent} p-0 sm:min-h-[320px] sm:rounded-[30px]`}
             >
               <AppImage
                 src={category.image}
@@ -104,13 +104,13 @@ const CategoriesPage = () => {
                 className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/18 to-transparent" />
-              <div className="relative z-10 flex h-full flex-col justify-end gap-8 p-6">
+              <div className="relative z-10 flex h-full flex-col justify-end gap-5 p-4 sm:gap-8 sm:p-6">
                 <div className="space-y-3">
                   <p className="text-xs uppercase tracking-[0.18em] text-white/70">Category</p>
-                  <h3 className="font-display text-3xl font-semibold tracking-[-0.05em] text-white">
+                  <h3 className="font-display text-[1.9rem] font-semibold tracking-[-0.05em] text-white sm:text-3xl">
                     {category.title}
                   </h3>
-                  <p className="max-w-md text-sm leading-7 text-white/78">
+                  <p className="max-w-md text-sm leading-6 text-white/78 sm:leading-7">
                     {category.description}
                   </p>
                 </div>

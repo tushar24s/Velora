@@ -116,45 +116,48 @@ const HeroSection = ({ products = [] }) => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="section-shell pt-8 sm:pt-12">
-      <div className="surface-card-strong relative overflow-hidden px-4 py-4 sm:px-5 sm:py-5 lg:px-6 lg:py-6">
+    <section ref={sectionRef} className="section-shell pt-6 sm:pt-10">
+      <div className="surface-card-strong relative overflow-hidden px-3 py-3 sm:px-5 sm:py-5 lg:px-6 lg:py-6">
         <div className="soft-grid absolute inset-0 opacity-45" />
         <div className="hero-orb left-10 top-10 h-64 w-64 bg-[rgba(var(--accent),0.16)]" />
         <div className="hero-orb bottom-4 right-8 h-72 w-72 bg-[rgba(var(--glow),0.16)]" />
         <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] via-transparent to-black/[0.16] dark:from-white/[0.02] dark:to-black/[0.26]" />
 
-        <div className="relative z-10 grid gap-5 xl:grid-cols-[312px_minmax(0,1fr)] xl:items-start">
+        <div className="relative z-10 grid gap-4 lg:grid-cols-[300px_minmax(0,1fr)] lg:items-start xl:grid-cols-[312px_minmax(0,1fr)]">
           <motion.div
             style={{ y: contentY }}
             variants={fadeUp}
             initial="initial"
             animate="animate"
-            className="surface-card flex h-full flex-col gap-4 self-start px-4 py-4 sm:px-5 sm:py-5"
+            className="surface-card flex h-full flex-col gap-3.5 self-start px-4 py-4 sm:px-5 sm:py-5"
           >
             <span className="eyebrow">
               <Sparkles className="h-3.5 w-3.5" />
               Velora signature drop
             </span>
 
-            <div data-gsap="hero-copy" className="space-y-3">
-              <h1 className="max-w-[14rem] font-display text-5xl font-semibold leading-[0.92] tracking-[-0.06em] sm:max-w-none sm:text-6xl xl:text-[4.2rem]">
+            <div data-gsap="hero-copy" className="space-y-2.5">
+              <h1 className="max-w-[11ch] font-display text-[2.85rem] font-semibold leading-[0.92] tracking-[-0.06em] sm:text-[3.8rem] lg:text-[4.05rem] xl:text-[4.25rem]">
                 Elevate Your Everyday Style
               </h1>
-              <p className="max-w-[18rem] text-[15px] leading-7 text-soft sm:max-w-[22rem] sm:text-base">
+              <p className="max-w-[30rem] text-sm leading-6 text-soft sm:text-base sm:leading-7 lg:max-w-[19rem] xl:max-w-[22rem]">
                 Discover premium products crafted for modern living, from collector timepieces and
                 sculpted tailoring to designer handbags and beautifully finished accessories.
               </p>
             </div>
 
-            <div className="flex flex-col gap-3 sm:flex-row xl:flex-col">
+            <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap lg:flex-col">
               <Link
                 to="/shop"
-                className="btn-secondary rounded-2xl border-[rgba(var(--accent),0.34)] bg-[rgba(var(--accent),0.14)] px-6 py-3.5 text-[15px] text-main shadow-[0_22px_56px_-30px_rgba(var(--glow),0.42)] hover:bg-[rgba(var(--accent),0.2)] dark:bg-[rgba(var(--accent),0.16)] dark:text-main"
+                className="btn-secondary w-full rounded-2xl border-[rgba(var(--accent),0.34)] bg-[rgba(var(--accent),0.14)] px-6 py-3.5 text-[15px] text-main shadow-[0_22px_56px_-30px_rgba(var(--glow),0.42)] hover:bg-[rgba(var(--accent),0.2)] dark:bg-[rgba(var(--accent),0.16)] dark:text-main sm:w-auto lg:w-full"
               >
                 Shop Collection
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
-              <a href="#new-arrivals" className="btn-secondary rounded-2xl px-6 py-3.5 text-[15px]">
+              <a
+                href="#new-arrivals"
+                className="btn-secondary w-full rounded-2xl px-6 py-3.5 text-[15px] sm:w-auto lg:w-full"
+              >
                 Explore New Arrivals
               </a>
             </div>
@@ -167,7 +170,7 @@ const HeroSection = ({ products = [] }) => {
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 data-gsap="hero-tags"
-                className="flex flex-wrap items-center gap-3"
+                className="flex flex-wrap items-center gap-2.5"
               >
                 <span className="rounded-full border border-soft bg-[rgba(var(--surface),0.82)] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-soft">
                   {activeSlide.category}
@@ -197,7 +200,7 @@ const HeroSection = ({ products = [] }) => {
                   </span>
                 </div>
                 <div className="mt-4 space-y-3">
-                  <h2 className="font-display text-[1.8rem] font-semibold leading-[1.02] tracking-[-0.05em] text-main">
+                  <h2 className="font-display text-[1.5rem] font-semibold leading-[1.02] tracking-[-0.05em] text-main sm:text-[1.75rem]">
                     {activeSlide.title}
                   </h2>
                   <p className="max-w-[28rem] text-sm leading-6 text-soft">
@@ -227,7 +230,7 @@ const HeroSection = ({ products = [] }) => {
                   type="button"
                   onClick={() => goToSlide(index)}
                   data-gsap="hero-selector"
-                  className={`inline-flex items-center rounded-full border px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] transition duration-300 ${
+                  className={`inline-flex items-center rounded-full border px-2.5 py-2 text-[10px] font-semibold uppercase tracking-[0.18em] transition duration-300 sm:px-3 sm:text-[11px] ${
                     index === activeIndex
                       ? "border-[rgba(var(--accent),0.42)] bg-[rgba(var(--accent),0.16)] text-main shadow-[0_16px_34px_-22px_rgba(var(--glow),0.52)]"
                       : "border-soft bg-[rgba(var(--surface),0.82)] text-soft hover:border-[rgba(var(--accent),0.28)] hover:text-main"
@@ -240,17 +243,17 @@ const HeroSection = ({ products = [] }) => {
             </div>
           </motion.div>
 
-          <motion.div style={{ y: previewY }} className="space-y-5">
+          <motion.div style={{ y: previewY }} className="space-y-4">
             <motion.div
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 6.2, repeat: Infinity, ease: "easeInOut" }}
               data-gsap="hero-showcase"
-              className="surface-card-strong overflow-hidden p-3"
+              className="surface-card-strong overflow-hidden p-2.5 sm:p-3"
             >
               <div className="relative overflow-hidden rounded-[18px]">
                 <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/68 via-black/24 to-black/6" />
                 <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/72 via-black/16 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 z-20 flex items-end justify-between gap-4 p-4 sm:p-5">
+                <div className="absolute inset-x-0 bottom-0 z-20 flex items-end justify-between gap-4 p-3 sm:p-5">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={`${activeSlide.href}-caption`}
@@ -263,10 +266,10 @@ const HeroSection = ({ products = [] }) => {
                       <p className="text-[11px] uppercase tracking-[0.2em] text-white/70">
                         {activeSlide.eyebrow}
                       </p>
-                      <h3 className="font-display text-3xl font-semibold leading-[1.02] tracking-[-0.05em] text-white sm:text-4xl">
+                      <h3 className="font-display text-[1.9rem] font-semibold leading-[1.02] tracking-[-0.05em] text-white sm:text-4xl">
                         {activeSlide.title}
                       </h3>
-                      <p className="text-sm leading-6 text-white/82 sm:text-base">
+                      <p className="text-[13px] leading-5 text-white/82 sm:text-base sm:leading-6">
                         {activeSlide.description}
                       </p>
                     </motion.div>
@@ -301,7 +304,7 @@ const HeroSection = ({ products = [] }) => {
                       exit={{ opacity: 0, scale: 0.985, y: -20 }}
                       transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                       data-gsap="hero-parallax"
-                      className="h-[400px] sm:h-[430px] lg:h-[450px]"
+                      className="h-[300px] sm:h-[360px] lg:h-[430px] xl:h-[450px]"
                     >
                       <AppImage
                         src={activeSlide.image}
@@ -317,13 +320,13 @@ const HeroSection = ({ products = [] }) => {
 
             <div
               data-gsap="hero-brands"
-              className="surface-card overflow-hidden rounded-[18px] px-4 py-3"
+              className="surface-card overflow-hidden rounded-[18px] px-3 py-3 sm:px-4"
             >
-              <div className="flex items-center gap-3">
-                <span className="inline-flex shrink-0 rounded-full border border-[rgba(var(--accent),0.22)] bg-[rgba(var(--accent),0.08)] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-main">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                <span className="inline-flex shrink-0 self-start rounded-full border border-[rgba(var(--accent),0.22)] bg-[rgba(var(--accent),0.08)] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-main">
                   Featured Houses
                 </span>
-                <div className="relative flex min-h-[52px] min-w-0 flex-1 items-center overflow-hidden rounded-full border border-soft bg-[rgba(var(--surface),0.84)] px-3 py-2">
+                <div className="relative flex min-h-[48px] min-w-0 flex-1 items-center overflow-hidden rounded-full border border-soft bg-[rgba(var(--surface),0.84)] px-3 py-2">
                   <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-[rgba(var(--surface-strong),0.98)] to-transparent sm:w-16" />
                   <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[rgba(var(--surface-strong),0.98)] to-transparent sm:w-16" />
                   <div className="brand-marquee relative z-20 min-w-0 flex-1">
@@ -339,12 +342,14 @@ const HeroSection = ({ products = [] }) => {
               </div>
             </div>
 
-            <div data-gsap="hero-products" className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {heroProducts.map((product) => (
+            <div data-gsap="hero-products" className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+              {heroProducts.map((product, index) => (
                 <Link
                   key={product._id}
                   to={`/products/${product.slug || product._id}`}
-                  className="group surface-card overflow-hidden rounded-[18px] p-3 transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_-40px_rgba(0,0,0,0.28)]"
+                  className={`group surface-card overflow-hidden rounded-[18px] p-3 transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_-40px_rgba(0,0,0,0.28)] ${
+                    index === 2 ? "hidden xl:block" : ""
+                  }`}
                 >
                   <div className="overflow-hidden rounded-[16px] bg-[rgba(var(--surface-muted),0.8)]">
                     <AppImage

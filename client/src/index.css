@@ -385,7 +385,7 @@
 
   .shop-hero-title {
     font-family: "Inter Tight", "Inter", sans-serif;
-    font-size: clamp(3rem, 6vw, 4rem);
+    font-size: clamp(2.4rem, 8.5vw, 4rem);
     font-weight: 600;
     letter-spacing: -0.02em;
     line-height: 1.08;
@@ -428,6 +428,25 @@
 
   .dark .quick-view-info {
     background: rgba(var(--surface-muted), 0.52);
+  }
+
+  @media (max-width: 767px) {
+    .glass-navbar {
+      @apply rounded-[22px];
+    }
+
+    .brand-marquee-chip {
+      padding: 0.55rem 0.75rem;
+      letter-spacing: 0.18em;
+    }
+
+    .tilt-card {
+      transform: none;
+    }
+
+    .tilt-shine {
+      display: none;
+    }
   }
 }
 

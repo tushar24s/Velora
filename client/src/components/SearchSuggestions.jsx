@@ -4,7 +4,7 @@ import AppImage from "./AppImage";
 
 const SearchSuggestions = ({ value, onChange, suggestions, onSelect, isFocused, onFocus, onBlur }) => (
   <div className="relative">
-    <div className="shop-search-shell surface-card flex items-center gap-4 px-6">
+    <div className="shop-search-shell surface-card flex items-center gap-3 px-4 sm:gap-4 sm:px-6">
       <Search className="h-5 w-5 text-soft" />
       <input
         value={value}

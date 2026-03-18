@@ -138,21 +138,21 @@ const HomePage = () => {
       initial="initial"
       animate="animate"
       exit="exit"
-      className="space-y-6"
+      className="space-y-5 sm:space-y-6"
     >
       <HeroSection
         products={featuredProducts.length ? featuredProducts : getFallbackFeaturedProducts(3)}
       />
 
       <section className="section-shell" id="shop-categories" data-gsap="home-section">
-        <div className="surface-card-strong px-5 py-5 sm:px-6 sm:py-6">
+        <div className="surface-card-strong px-4 py-4 sm:px-6 sm:py-6">
           <SectionHeading
             eyebrow="Shop by category"
             title="Browse curated collections designed like premium retail edits."
             description="Explore signature product worlds across luxury clothing, handbags, watches, shoes, and accessories."
           />
 
-          <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-5 grid gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3">
             {categoryHighlights.map((item, index) => (
               <motion.div
                 key={item.title}
@@ -170,7 +170,7 @@ const HomePage = () => {
                 }}
                 role="link"
                 tabIndex={0}
-                className={`group relative min-h-[280px] cursor-pointer overflow-hidden rounded-[20px] border border-soft bg-gradient-to-br ${item.accent} p-0`}
+                className={`group relative min-h-[240px] cursor-pointer overflow-hidden rounded-[20px] border border-soft bg-gradient-to-br ${item.accent} p-0 sm:min-h-[280px]`}
               >
                 <AppImage
                   src={item.image}
@@ -179,13 +179,15 @@ const HomePage = () => {
                   className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/78 via-black/18 to-transparent" />
-                <div className="relative z-10 flex h-full flex-col justify-end gap-3 p-5">
+                <div className="relative z-10 flex h-full flex-col justify-end gap-3 p-4 sm:p-5">
                   <div className="space-y-2">
                     <p className="text-xs uppercase tracking-[0.2em] text-white/70">Collection</p>
-                    <h3 className="font-display text-3xl font-semibold tracking-[-0.05em] text-white">
+                    <h3 className="font-display text-[1.9rem] font-semibold tracking-[-0.05em] text-white sm:text-3xl">
                       {item.title}
                     </h3>
-                    <p className="max-w-md text-sm leading-7 text-white/78">{item.description}</p>
+                    <p className="max-w-md text-sm leading-6 text-white/78 sm:leading-7">
+                      {item.description}
+                    </p>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {item.spotlightLinks?.map((linkItem) => (
@@ -226,7 +228,7 @@ const HomePage = () => {
           }
         />
 
-        <div data-gsap="home-shelf" className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <div data-gsap="home-shelf" className="mt-5 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {loading
             ? Array.from({ length: 8 }).map((_, index) => <ProductSkeleton key={index} />)
             : featuredProducts.map((product, index) => (
@@ -246,7 +248,7 @@ const HomePage = () => {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, amount: 0.28 }}
-          className="surface-card-strong group relative min-h-[400px] overflow-hidden p-0"
+          className="surface-card-strong group relative min-h-[320px] overflow-hidden p-0 sm:min-h-[400px]"
         >
           <div data-gsap="promo-panel" className="absolute inset-0">
             <AppImage
@@ -258,16 +260,16 @@ const HomePage = () => {
           </div>
           <div className="absolute inset-0 bg-black/35" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/28 to-black/40" />
-          <div className="absolute inset-0 flex items-center justify-center p-6 text-center sm:p-8">
+          <div className="absolute inset-0 flex items-center justify-center p-5 text-center sm:p-8">
             <div className="max-w-2xl space-y-4">
               <span className="inline-flex rounded-full bg-white/14 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-md">
                 Winter Collection
               </span>
               <div className="space-y-2">
-                <h2 className="font-display text-4xl font-semibold tracking-[-0.05em] text-white sm:text-5xl">
+                <h2 className="font-display text-3xl font-semibold tracking-[-0.05em] text-white sm:text-5xl">
                   Up to 40% Off
                 </h2>
-                <p className="text-base leading-8 text-white/80 sm:text-lg">
+                <p className="text-sm leading-7 text-white/80 sm:text-lg">
                   Discover seasonal layers, sharper tailoring, and premium everyday pieces with a
                   softer winter palette.
                 </p>
@@ -288,7 +290,7 @@ const HomePage = () => {
           description="New drops across premium essentials, statement fashion, and elevated everyday buys."
         />
 
-        <div data-gsap="home-shelf" className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        <div data-gsap="home-shelf" className="mt-5 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {loading
             ? Array.from({ length: 6 }).map((_, index) => <ProductSkeleton key={index} />)
             : newArrivals.map((product, index) => (
@@ -310,7 +312,7 @@ const HomePage = () => {
           description="Short, clear feedback that reinforces product quality and a smooth shopping experience."
         />
 
-        <div className="mt-6 grid gap-4 lg:grid-cols-3">
+        <div className="mt-5 grid gap-4 lg:grid-cols-3">
           {customerReviews.map((review, index) => (
             <motion.div
               key={review.name}
@@ -341,7 +343,7 @@ const HomePage = () => {
         />
 
         {recentlyViewed.length ? (
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-5 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {recentlyViewed.map((product, index) => (
               <ProductCard
                 key={product._id}
@@ -352,7 +354,7 @@ const HomePage = () => {
             ))}
           </div>
         ) : (
-          <div className="surface-card mt-6 flex flex-col items-start gap-3 px-5 py-6 sm:px-6">
+          <div className="surface-card mt-5 flex flex-col items-start gap-3 px-5 py-6 sm:px-6">
             <p className="max-w-2xl text-soft">
               Browse the catalogue and open a few products to build your recently viewed list.
             </p>
@@ -369,7 +371,7 @@ const HomePage = () => {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, amount: 0.3 }}
-          className="surface-card-strong px-5 py-6 sm:px-6 sm:py-6"
+          className="surface-card-strong px-4 py-5 sm:px-6 sm:py-6"
         >
           <SectionHeading
             eyebrow="Newsletter"
@@ -379,7 +381,7 @@ const HomePage = () => {
 
           <form
             onSubmit={handleNewsletterSubmit}
-            className="mt-6 flex flex-col gap-3 sm:flex-row"
+            className="mt-5 flex flex-col gap-3 sm:flex-row"
           >
             <input
               type="email"

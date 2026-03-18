@@ -115,7 +115,7 @@ const ProductDetailsPage = () => {
 
   if (loading) {
     return (
-      <div className="section-shell grid gap-8 lg:grid-cols-[1fr_1fr]">
+      <div className="section-shell grid gap-6 lg:grid-cols-[1fr_1fr]">
         <ProductSkeleton />
         <ProductSkeleton />
       </div>
@@ -144,20 +144,20 @@ const ProductDetailsPage = () => {
       initial="initial"
       animate="animate"
       exit="exit"
-      className="section-shell space-y-14"
+      className="section-shell space-y-10 sm:space-y-14"
     >
       <motion.div
         initial={{ opacity: 0, y: 24, scale: 0.985 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: -18, scale: 0.98 }}
         transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
-        className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]"
+        className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8"
       >
         <div className="space-y-4">
-          <div className="surface-card-strong overflow-hidden p-4">
+          <div className="surface-card-strong overflow-hidden p-3 sm:p-4">
             <motion.div
               layoutId={`product-media-${motionKey}`}
-              className="overflow-hidden rounded-[28px] bg-[rgba(var(--surface-muted),0.85)]"
+              className="overflow-hidden rounded-[20px] bg-[rgba(var(--surface-muted),0.85)] sm:rounded-[28px]"
             >
               <AppImage
                 ref={primaryImageRef}
@@ -190,8 +190,8 @@ const ProductDetailsPage = () => {
           </div>
         </div>
 
-        <div className="surface-card-strong px-6 py-8 sm:px-8">
-          <div className="space-y-6">
+        <div className="surface-card-strong px-4 py-5 sm:px-8 sm:py-8">
+          <div className="space-y-5 sm:space-y-6">
             <div className="flex flex-wrap items-center gap-3">
               <span className="rounded-full bg-[rgba(var(--accent),0.12)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[rgb(var(--accent))]">
                 {product.category}
@@ -202,10 +202,10 @@ const ProductDetailsPage = () => {
             </div>
 
             <div className="flex flex-wrap items-start justify-between gap-6">
-              <div className="space-y-3">
+              <div className="space-y-2.5">
                 <motion.h1
                   layoutId={`product-title-${motionKey}`}
-                  className="font-display text-4xl font-semibold tracking-[-0.05em] sm:text-5xl"
+                  className="font-display text-[2.2rem] font-semibold leading-[1.02] tracking-[-0.05em] sm:text-5xl"
                 >
                   {product.name}
                 </motion.h1>
@@ -227,9 +227,11 @@ const ProductDetailsPage = () => {
             >
               {formatCurrency(product.price)}
             </motion.p>
-            <p className="leading-8 text-soft">{product.description}</p>
+            <p className="text-sm leading-7 text-soft sm:text-base sm:leading-8">
+              {product.description}
+            </p>
 
-            <div className="grid gap-3 rounded-[26px] border border-soft bg-[rgba(var(--surface),0.64)] p-5 sm:grid-cols-3">
+            <div className="grid gap-3 rounded-[20px] border border-soft bg-[rgba(var(--surface),0.64)] p-4 sm:grid-cols-3 sm:rounded-[26px] sm:p-5">
               {product.specifications?.map((spec) => (
                 <div key={spec.label}>
                   <p className="text-xs uppercase tracking-[0.16em] text-soft">{spec.label}</p>
@@ -276,15 +278,15 @@ const ProductDetailsPage = () => {
         </div>
       </motion.div>
 
-      <div className="grid gap-8 lg:grid-cols-[1fr_0.95fr]">
-        <div className="surface-card-strong px-6 py-8 sm:px-8">
+      <div className="grid gap-6 lg:grid-cols-[1fr_0.95fr] lg:gap-8">
+        <div className="surface-card-strong px-4 py-5 sm:px-8 sm:py-8">
           <SectionHeading
             eyebrow="Ratings & reviews"
             title="Feedback designed to feel like a real store, not placeholder content."
             description="Seeded reviews make the product detail view feel complete, and authenticated users can post their own rating."
           />
 
-          <div className="mt-8 space-y-4">
+          <div className="mt-6 space-y-4 sm:mt-8">
             {product.reviews?.length ? (
               product.reviews.map((item) => (
                 <div key={item._id || `${item.name}-${item.comment}`} className="surface-card px-5 py-4">
@@ -309,7 +311,7 @@ const ProductDetailsPage = () => {
           </div>
         </div>
 
-        <div className="surface-card-strong px-6 py-8 sm:px-8">
+        <div className="surface-card-strong px-4 py-5 sm:px-8 sm:py-8">
           <SectionHeading
             eyebrow="Leave a review"
             title={user ? "Share your product experience." : "Sign in to review this product."}
@@ -317,7 +319,7 @@ const ProductDetailsPage = () => {
           />
 
           {user ? (
-            <form onSubmit={handleReviewSubmit} className="mt-8 space-y-4">
+            <form onSubmit={handleReviewSubmit} className="mt-6 space-y-4 sm:mt-8">
               <label className="block space-y-2 text-sm">
                 <span className="font-semibold">Rating</span>
                 <select

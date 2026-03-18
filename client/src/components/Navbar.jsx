@@ -82,20 +82,24 @@ const Navbar = () => {
   }, [cartPulseToken, desktopCartControls, mobileCartControls]);
 
   return (
-    <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 px-3 pt-3 sm:px-6 sm:pt-4 lg:px-8">
       <div className="section-shell">
         <div
-          className={`glass-navbar mx-auto flex items-center justify-between px-4 py-3 sm:px-5 ${
+          className={`glass-navbar mx-auto flex items-center justify-between px-3 py-3 sm:px-5 ${
             scrolled ? "is-scrolled" : ""
           }`}
         >
-          <Link to="/" className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[rgba(var(--accent),0.14)] text-[rgb(var(--accent))]">
+          <Link to="/" className="flex min-w-0 items-center gap-2.5 sm:gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-[rgba(var(--accent),0.14)] text-[rgb(var(--accent))] sm:h-10 sm:w-10">
               <span className="font-display text-lg font-bold">V</span>
             </div>
-            <div>
-              <p className="font-display text-lg font-semibold tracking-[0.08em]">VELORA</p>
-              <p className="text-xs uppercase tracking-[0.16em] text-soft">Curated commerce</p>
+            <div className="min-w-0">
+              <p className="font-display text-base font-semibold tracking-[0.08em] sm:text-lg">
+                VELORA
+              </p>
+              <p className="hidden text-xs uppercase tracking-[0.16em] text-soft sm:block">
+                Curated commerce
+              </p>
             </div>
           </Link>
 
@@ -143,7 +147,7 @@ const Navbar = () => {
             )}
           </div>
 
-          <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex items-center gap-1.5 sm:gap-2 lg:hidden">
             <motion.button
               type="button"
               ref={mobileCartRef}
