@@ -4,6 +4,8 @@ Velora is a premium full-stack luxury eCommerce project built for a portfolio se
 
 The goal of the project is not just to demonstrate CRUD operations. It is built to feel like a modern retail product: cinematic homepage layout, polished transitions, realistic cart and checkout flows, protected admin tooling, and a frontend that stays usable even when the backend is unavailable.
 
+Live Project - https://veloraec.vercel.app/
+
 ## Table of Contents
 
 - [Project Overview](#project-overview)
